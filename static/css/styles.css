@@ -1,0 +1,64 @@
+.navbar-main {
+    background-color: #aebec9;
+    color: #FFFFFF;
+}
+
+.navbar-options {
+    background: linear-gradient(#333736, #606166);
+    color: white;
+}
+
+
+.navbar-options .navbar-nav .nav-link {
+    color: white;
+    font-size: xx-small;
+    border: solid white 1px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.directory {
+    margin: 20px;
+}
+
+.directory p {
+    margin: 20px;
+}
+
+.togglebutton[aria-expanded="true"] .fa-chevron-right {
+    transform: rotate(90deg);
+}
+
+.cloud-file a{
+    font-size: small;
+}
+
+.videoWrapper {
+    padding-top: 25px;
+    height: 0;
+}
+
+.fileWrapper iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+}
+
+
+.content-function .content-function-discription{
+    visibility: hidden;
+    display: none;
+}
+
+.content-function:hover .content-function-discription{
+    visibility: visible;
+    display: inline;
+}
+
+.delete:hover{
+    background-color: #fa2a2a;
+    border-color: red;
+    color: white;
+}

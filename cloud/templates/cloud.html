@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block options_left %}
+    <li class="nav-item">
+        <a href="{% url 'cloud_addcontent' %}" class="nav-link">Datei hochladen</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'cloud_addembedded' %}" class="nav-link">Office Element hochladen</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        {% if user.is_authenticated %}
+            <div class="mt-5">
+                <h3>Eigene Dateien</h3>
+                {% for file in private_files %}
+                    <div class="row mt-2 cloud-file">
+                        <div class="col">
+                            <p class="d-inline">{{ file.filename }}</p>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-light d-inline p-1 ml-3 content-function"
+                               href="{{ file.get_download_url }}"
+                               download="{{ file.file }}">
+                                <i class="fa fa-download"></i> <span
+                                    class="content-function-discription">Download </span>
+                            </a>
+                            <a class="btn btn-light d-inline p-1 ml-3 content-function"
+                               href="{{ file.get_absolute_url }}">
+                                <i class="fa fa-share"></i>
+                                <span class="content-function-discription">Im Browser anzeigen</span>
+                            </a>
+                            <a class="btn btn-light d-inline p-1 ml-3 content-function delete"
+                               href="{{ file.get_delete_url }}">
+                                <i class="fa fa-trash"></i>
+                                <span class="content-function-discription">Löschen</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="mt-5">
+            <h3>Öffentliche Datein</h3>
+            {% for file in public_files %}
+                <div class="row mt-2 cloud-file">
+                    <div class="col">
+                        <p class="d-inline">{{ file.filename }}</p>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-light d-inline p-1 ml-3 content-function"
+                           href="{{ file.get_download_url }}"
+                           download="{{ file.file }}">
+                            <i class="fa fa-download"></i> <span
+                                class="content-function-discription">Download </span>
+                        </a>
+                        <a class="btn btn-light d-inline p-1 ml-3 content-function"
+                           href="{{ file.get_absolute_url }}">
+                            <i class="fa fa-share"></i>
+                            <span class="content-function-discription">Im Browser anzeigen</span>
+                        </a>
+                        <a class="btn btn-light d-inline p-1 ml-3 content-function delete"
+                           href="{{ file.get_delete_url }}">
+                            <i class="fa fa-trash"></i>
+                            <span class="content-function-discription">Löschen</span>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
