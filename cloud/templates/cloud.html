@@ -21,12 +21,14 @@
                             <p class="d-inline">{{ file.filename }}</p>
                         </div>
                         <div class="col">
-                            <a class="btn btn-light d-inline p-1 ml-3 content-function"
-                               href="{{ file.get_download_url }}"
-                               download="{{ file.file }}">
-                                <i class="fa fa-download"></i> <span
-                                    class="content-function-discription">Download </span>
-                            </a>
+                            {% if file.content_type == 'video' or file.content_type == 'pdf' or file.content_type == 'file' %}
+                                <a class="btn btn-light d-inline p-1 ml-3 content-function"
+                                   href="{{ file.get_download_url }}"
+                                   download="{{ file.file }}">
+                                    <i class="fa fa-download"></i> <span
+                                        class="content-function-discription">Download </span>
+                                </a>
+                            {% endif %}
                             <a class="btn btn-light d-inline p-1 ml-3 content-function"
                                href="{{ file.get_absolute_url }}">
                                 <i class="fa fa-share"></i>

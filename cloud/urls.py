@@ -3,7 +3,8 @@ from .views import *
 
 urlpatterns = [
     path('', cloud_main, name="cloudmain"),
-    path('showcontent/<int:id>', cloud_show_content, name='cloud_show_content'),
+    path('showfile/<int:id>', cloud_show_content, name='cloud_show_content'),
+    path('showembedded/<int:id>', cloud_show_embedded, name='cloud_show_embedded'),
     path('download/<int:id>', cloud_download_content, name='cloud_download'),
     path('addcontent', cloud_add_content, name='cloud_addcontent'),
     path('addembedded', cloud_add_embedded_content, name='cloud_addembedded'),

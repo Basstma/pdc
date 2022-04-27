@@ -62,6 +62,7 @@ def cloud_add_content(request):
         new_file = FileObjectForm(request.POST, request.FILES)
         if new_file.is_valid():
             new_file.save()
+            return redirect('cloudmain')
     add_file_form = FileObjectForm()
     context = {
         'form': add_file_form

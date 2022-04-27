@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block options_right %}
+    <li class="nav-item">
+        <a class="nav-link active" href="/cloud">Zurück</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container-l mt-5 fileWrapper">
+        {{ file.content | safe }}
+
+    </div>
+{% endblock %}
